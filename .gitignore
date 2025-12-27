@@ -1,0 +1,20 @@
+# Build directories
+lib/build/
+try/build/
+
+# Object files
+*.o
+*.a
+
+# Tentative files
+*.ok
+*.old
+*.org
+
+# Executables
+a.out
+prog_old
+prog
+playmatrix
+playmatrix2
+test

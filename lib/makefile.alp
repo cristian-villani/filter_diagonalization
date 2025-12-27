@@ -1,0 +1,45 @@
+FC = /usr/lib/cmplrs/fort_520/fort
+FFLAGS = -fsymbol-case-lower -fno-second-underscore
+pezzi= finit.o cfkaip.o diag.o drnd.o lao.o pre.o chkinput.o \
+       psiio.o reai.o set_robin_input.o ntpsi.o norm_psi.o
+
+lib:	$(pezzi)
+	ar rv libfilter.a $(pezzi)
+
+finit.o: finit.c hfile.h
+	cc -c finit.c
+
+pre.o: pre.c
+	cc -c pre.c
+
+chkinput.o: chkinput.c
+	cc -c chkinput.c
+
+cfkaip.o:cfkaip.c hfile.h
+	 cc -c cfkaip.c
+
+diag.o: diag.c hfile.h
+	cc -c diag.c
+
+lao.o: lao.c lao.h
+	cc -c lao.c
+
+norm_psi.o: norm_psi.c lao.h
+	cc -c norm_psi.c
+
+ntpsi.o: ntpsi.c
+	cc -c ntpsi.c
+
+psiio.o: psiio.c
+	cc -c psiio.c
+
+reai.o: reai.f
+	$(FC) $(FFLAGS) -c reai.f
+
+set_robin_input.o: set_robin_input.F  filenames.h spec.h logicals.h \
+                                      dimensions.h f_minmax.h gauss.h \
+                                      cutprec.h
+	$(FC) $(FFLAGS) -c set_robin_input.F
+
+clean:
+	rm $(pezzi) libfilter.a

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../filter1.1"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}
