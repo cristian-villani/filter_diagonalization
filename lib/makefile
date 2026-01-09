@@ -1,7 +1,7 @@
 FC = f77
 CC = cc
-FFLAGS = -fno-second-underscore
-CFLAGS = -Iinclude -Wall
+FFLAGS = -fno-second-underscore -g -O0
+CFLAGS = -Iinclude -Wall -g -O0
 
 SRC = src
 BUILD = build
@@ -12,7 +12,7 @@ $(BUILD)/libfilter.a: $(BUILD)/finit.o $(BUILD)/cfkaip.o $(BUILD)/diag.o \
                       $(BUILD)/chkinput.o $(BUILD)/psiio.o \
                       $(BUILD)/reai.o $(BUILD)/set_robin_input.o \
                       $(BUILD)/ntpsi.o $(BUILD)/norm_psi.o
-	ar rv $(BUILD)/libfilter.a $(BUILD)/*.o
+	ar rcs $(BUILD)/libfilter.a $(BUILD)/*.o
 
 # C files
 $(BUILD)/finit.o: $(SRC)/finit.c include/hfile.h include/const.h
@@ -26,9 +26,6 @@ $(BUILD)/chkinput.o: $(SRC)/chkinput.c include/const.h
 
 $(BUILD)/cfkaip.o: $(SRC)/cfkaip.c include/hfile.h
 	$(CC) $(CFLAGS) -c $(SRC)/cfkaip.c -o $(BUILD)/cfkaip.o
-
-$(BUILD)/diag.o: $(SRC)/diag.c include/hfile.h
-	$(CC) $(CFLAGS) -c $(SRC)/diag.c -o $(BUILD)/diag.o
 
 $(BUILD)/drnd.o: $(SRC)/drnd.c include/hfile.h
 	$(CC) $(CFLAGS) -c $(SRC)/drnd.c -o $(BUILD)/drnd.o

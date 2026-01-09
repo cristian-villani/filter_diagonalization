@@ -1,4 +1,4 @@
-FC = /usr/lib/cmplrs/fort_520/fort
+FC = g77
 FFLAGS = -fsymbol-case-lower -fno-second-underscore
 pezzi= finit.o cfkaip.o diag.o drnd.o lao.o pre.o chkinput.o \
        psiio.o reai.o set_robin_input.o ntpsi.o norm_psi.o

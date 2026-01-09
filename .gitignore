@@ -13,8 +13,12 @@ try/build/
 
 # Executables
 a.out
-prog_old
-prog
-playmatrix
-playmatrix2
-test
+test_lanczos_first
+test_flset
+test_fd_base
+
+# Others
+*.kdev4
+*.code-workspace
+fil_psi
+blkfil_hpsimat
