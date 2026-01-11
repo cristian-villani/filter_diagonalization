@@ -5,7 +5,6 @@
 
 This project is a **work in progress** aimed at implementing **filter diagonalization** for quantum chemistry applications. **Filter diagonalization** is a numerical method used to compute eigenvalues for very large matrices, and while it is not meant to replace existing diagonalization methods, it has been very helpful in specific situations where other methods do not perform well.
 
-Filter diagonalization is not a replacement for other, more established diagonalization methods. In fact, those methods tend to work better when they are applicable.
 The method has been particularly useful when coupled with a parallel implementation of programs, which employ a **low storage** approach. Instead of storing the entire matrix, they calculate the needed product at each iteration. This makes it possible to handle **large systems** that would otherwise be impractical to process with conventional methods.
 
 ## Key Features
