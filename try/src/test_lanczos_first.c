@@ -9,23 +9,29 @@ int main(void)
     /* -------------------------------
        Test parameters
        ------------------------------- */
-    int ndim = 110;
+    int ndim, nr8;
     int L = 6;
     int core = 0;
     int random = 1;
     int ioen = 0;
     int restart = 0;
-    int nr8 = ndim;
     int L_default;
 
     char buf[128];
 
-    double sigma, sigma_window, sigma_min, sigma_max;
+    double sigma, sigma_window, sigma_min, sigma_max, sigma_default;
     double emin = -5.5;
     double emax = 0.0;
     double hmin, hmax;
     double window;
     double prec1 = 1e-10;
+
+    printf("Enter matrix dimension (ndim): ");
+    if (scanf("%d%*c", &ndim) != 1 || ndim <= 0) {
+       fprintf(stderr, "Invalid matrix size\n");
+       exit(1);
+    }
+    nr8 = ndim;
 
     /* -------------------------------
        Generate test matrix
@@ -45,7 +51,7 @@ int main(void)
 
     hmin = eigvals[0];                 // smallest Lanczos eigenvalue
     hmax = eigvals[L_LANCZOS-1];       // largest Lanczos eigenvalue
-    double margin = 0.05 * (hmax - hmin);
+    double margin = 0.1 * (hmax - hmin);
     hmin -= margin;
     hmax += margin;
 
@@ -87,8 +93,8 @@ int main(void)
         emax = hmax;
     }
 
-    // -----------------------------
-    // Compute sigma
+   // -----------------------------
+    // Compute suggested sigma value
     // -----------------------------
     window = emax - emin;
 
@@ -97,12 +103,21 @@ int main(void)
     sigma_min      = 0.02 * window;           // 2% of window width
     sigma_max      = 0.3  * window;           // 30% of window width
 
-    // Choose sigma automatically
     sigma = 0.3 * sigma_window;
 
     // Clamp sigma inside reasonable bounds
     if(sigma < sigma_min) sigma = sigma_min;
     if(sigma > sigma_max) sigma = sigma_max;
+
+    // -----------------------------
+    // Allow user to change sigma
+    // -----------------------------
+    sigma_default = sigma;
+    printf("Enter filter width sigma [suggested %.6f]: ", sigma_default);
+    if (scanf("%lf%*c", &sigma) != 1 || sigma <= 0.0) {
+       printf("Using default sigma=%.6f\n", sigma_default);
+       sigma = sigma_default;
+    }
 
     printf("Using L=%d, sigma=%.6f, emin=%.6f, emax=%.6f\n",
            L, sigma, emin, emax);

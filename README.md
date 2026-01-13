@@ -34,7 +34,7 @@ This project is distributed under the **[MIT License](LICENSE)**. See the LICENS
 
 - **Prof. Francesco Tarantelli**: This project is dedicated to my PhD supervisor, who first introduced me to Unix computer systems and software development. I have always been deeply interested in theoretical chemistry, and I am very thankful that I had the chance to work under his supervision. I learned a great deal during this time. His exceptional expertise, integrity, and motivating attitude made this experience both inspiring and formative.
 
-- **Prof. Robin Santra**: I would also like to thank Prof. Santra for suggesting the use of filter diagonalization to extract selected eigenvalues for very large matrices.
+- **Prof. Robin Santra**: I would also like to thank Prof. Santra for suggesting the use of filter diagonalization to efficiently extract eigenvectors of large matrices within a specific eigenvalue range.
 
 ## To-Do
 
