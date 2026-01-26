@@ -1,17 +1,19 @@
 # Try it out
 
-If you managed to install you should be able to run the test program.
-What makes the low storage filter diagonalization approach efficient
-is of course the possibility of recalculating the matrix vector
-product at each iteration. This made the coupling with the direct-ADC(4)
-program particularly efficient.
+If you managed to install the library and the code you should be able to
+run the test program.
+The great advantage of the filter diagonalization approach
+is the low storage cost when the method is coupled with a program like
+the direct-ADC(4) which recalculates the matrix vector
+product at each iteration.
 Here, for test purposes, the randomly generated matrix is stored in memory.
 
-There are currently three slightly different versions of the testing program
-the `test_flset` and `test_lanczos_first` start with a lanczos run which
-generates estimation of the eigenvalues. You can select the spectral region
-of interest und run the program. You will be asked for input parameters and
-you will see something like the text below:
+There are currently three slightly different versions of the testing program.
+The `test_flset` and `test_lanczos_first` start both with a lanczos run which
+generates estimation of the eigenvalues.
+You will be asked for some input parameters such as the energy window and
+the width of the filter function. After that you should see something like the
+text below:
 
 ```
 Running filter diagonalization unit test
