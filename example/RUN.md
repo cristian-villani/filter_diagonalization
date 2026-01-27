@@ -6,11 +6,15 @@ The great advantage of the filter diagonalization approach
 is the low storage cost when the method is coupled with a program like
 the direct-ADC(4) which recalculates the matrix vector
 product at each iteration.
-Here, for test purposes, the randomly generated matrix is stored in memory.
+Here, for test purposes, the symmetric randomly generated matrix is
+stored in memory.
 
 There are currently three slightly different versions of the testing program.
 The `test_flset` and `test_lanczos_first` start both with a lanczos run which
-generates estimation of the eigenvalues.
+generates estimation of the eigenvalues. While the `test_lanczos_first`
+generates a very dense spectrum, the `test_flset` creates some spectral
+regions which contain less eigenvalues. In these regions the method
+should produce better results.
 You will be asked for some input parameters such as the energy window and
 the width of the filter function. After that you should see something like the
 text below:
