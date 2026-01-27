@@ -12,3 +12,7 @@ dense spectral region between 412.0 and 413.4 eV.
 
 ![Ni3N2H2 diagram](diagrams/ni3n2h2_detail.png)
 
+The picture above and the following representing the whole simulated
+XPS-spectrum are both taken from my pHD work.
+
+![Ni3N2H2 diagram](diagrams/ni3n2h2.png)
